@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Respect getter</title>
+	<title>Pls YVAJENIE</title>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&subset=cyrillic-ext" rel="stylesheet">
 	<style>
 body {
@@ -39,6 +39,11 @@ div.respect-btn {
 	background: #ededed;
 	opacity: .6;
 	transition: .6s;
+
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	user-select: none; 
 }
 div.respect-btn:hover {
 	background: #fff;
@@ -54,7 +59,17 @@ div.respect-text {
 	margin:0;
 	margin-bottom: 20px;
 }
-div.respect
+.mini_point-zephry {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -30px 0 0 -15px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: url(images/icons/zephry.png) no-repeat center center;
+	opacity: .2;
+}
 	</style>
 </head>
 <body>
@@ -69,5 +84,34 @@ div.respect
 
 		</div>
 	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script>
+		
+			function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+	var counter = 0;
+
+			function create_emoji() {
+				counter++;
+	var screenWidth = $(window).width() - 40, screenHeight = $(window).height() - 40;
+
+var mini_point = '<div class="mini_point-zephry icon_pos-'+counter+'"></div>';
+$('body').append(mini_point);
+$('div.icon_pos-'+counter).animate({
+	'left': getRandomInt(20, screenWidth),
+	 'top': getRandomInt(20, screenHeight),
+	 'opacity': 1
+}, 600);
+return false
+		}
+
+
+	$(function(){
+		$('.respect-btn').bind('click', create_emoji);
+		})
+	</script>
 </body>
 </html>
